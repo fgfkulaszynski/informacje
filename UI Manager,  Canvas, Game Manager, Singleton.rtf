@@ -1,0 +1,279 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil Calibri;}{\f3\fnil Consolas;}{\f4\fnil\fcharset238 Consolas;}{\f5\fnil\fcharset0 Consolas;}}
+{\colortbl ;\red0\green0\blue255;\red0\green0\blue0;\red163\green21\blue21;\red0\green128\blue0;\red43\green145\blue175;}
+{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang1045 Uk\'b3ad element\f1\lang1033\'f3\f0\lang1045 w ui jest hierarchiczny - s\'b9 randerowane od g\f1\lang1033\'f3\f0\lang1045 ry do do\'b3u - je\'9cli co\'9c ma zosta\'e6 przykryte to musi by\'e6 wy\'bfej w hierarchii.\par
+Elementy ui musz\'b9 mie\'e6 zakotwiczenie, bo przy zmianie wielko\'9cci ekranu znikn\'b9 z niego.\par
+
+\pard\sl276\slmult1 Aby utworzy\'e6 obiekt canvas wystarczy doda\'e6 jaki\'9c obiekt ui - kanwa zostanie dodana automatyczenie.\par
+\par
+\b\fs28 Konfiguracja pocz\'b9tkowa obiektu Canvas:\b0\fs22\par
+Aby elementy zmienia\'b3y skal\'ea wraz ze zmian\'b9 wielkosci ekranu (mo\'bfna to sprawdzi\'e6 powi\'eakszaj\'b9c lub pomnijszaj\'b9c scen\'ea, podgl\'b9d gry):\par
+\b Komponent Canvas Scaler\b0\par
+UI Scale Mode:  Scale With Screen Size\par
+Reference Resolution:  1920x1080\par
+Sceen Match Mode: Match Width or Heigh\par
+Match: 0\par
+\b Komponent Canvas\b0\par
+
+\pard\sa200\sl276\slmult1 Rander Mode: Screen Space - Overlay - kanwa zawsze dla g\'b3\f1\lang1033\'f3\f0\lang1045 wnej kamery\par
+\par
+"Canvas group - umozliwia dopasowanie zawarto\'9cci - trzeba wy\'b3\'b9czy\'e6 blocks raycasts, aby mo\'bfna by\'b3o klika\'e6 + vertical layout group\par
+w item backround do kt\f1\lang1033\'f3\f0\lang1045 rego dodano canvas group trzeba wy\'b3\'b9czy\'e6 raycast target - da to dost\'eap do child\f1\lang1033\'f3\f0\lang1045 w" - co\'9c nie dzia\'b3a - wyci\'b9gn\'b9\'e6 childy na g\f1\lang1033\'f3\f0\lang1045 r\'ea\par
+\par
+Button color tint to one - je\'9cli nie ma obrazka t\'b3a \par
+\par
+\b UI manager (odpowieda za canvas)\b0\par
+Pusty game object, kt\f1\lang1033\'f3\f0\lang1045 ry ma przypisany skrypt ui managera. Aktualizuje UI, kiedy mu ka\'bfemy. Czasem skrypt mo\'bfemy przypisa\'e6 po prostu do canvy i to ona b\'eadzie pe\'b3ni\'b3a rol\'ea obiektu gry ui managera. Canva jest tworzona automatycznie gdy dodamy jakikolwiek obiekt Ui w hierarchii. \par
+Singleton \f2\endash  kreacyjny wzorzec projektowy, kt\f1\lang1033\'f3rego celem jest ograniczenie mo\f0\'bfliwo\'9cci tworzenia obiekt\f1\'f3w danej klasy do jednej instancji oraz zapewnienie globalnego dost\f0\'eapu do stworzonego obiektu.\par
+
+\pard\sl276\slmult1 Aby mie\'e6 dost\'eap do element\f1\'f3\f0\lang1045 w iu w kodzie, nale\'bfy doda\'e6 przestrze\'f1 nazw: \par
+\cf1\f3\fs19\lang1033 using\cf2  UnityEngine.UI;\par
+\f4\lang1045 Handle: \par
+W c# tworzymy odpowiedni obiekt UI, np Text, a nastepnie w unity przeci\'b9gamy odpowiedni obiekt do odpowiedniego pola w skrypcie obiektu uimanagera.  \par
+\f3     [SerializeField]\par
+    \cf1 private\cf2  Text _ScoreText;\par
+    \cf1 void\cf2  \cf1 Start\cf2 ()\par
+    \{\par
+\par
+        _ScoreText.text = \cf3 "Score: "\cf2  + 99;\par
+        \par
+    \}\f5\lang1033\par
+\cf0\f0\fs22\par
+W ui menedzerze tworzymy metody, kt\f1\'f3\f0 re mo\'bfna wywo\'b3a\'e6 z poziomu na przyk\'b3ad skryptu playera.\par
+\cf2\f3\fs19     \cf1 public\cf2  \cf1 void\cf2  UpdateScoreText(\cf1 int\cf2  playerScore)\par
+    \{\par
+        _ScoreText.text = \cf3 "Score: "\cf2  + playerScore; \par
+    \}\cf0\f0\fs22\par
+\par
+W skrypcie playera tworzymy odwo\'b3anie do uimanagera.\par
+\cf2\f3\fs19     \cf1 private\cf2  UIManager _uiManager;\par
+    \cf1 void\cf2  \cf1 Start\cf2 ()\par
+    \{\par
+        _uiManager = GameObject.Find(\cf3 "UI_Manager"\cf2 ).GetComponent<UIManager>();\par
+\f4\lang1045\tab\cf1\f3 if\cf2  (_uiManager == \cf1 null\cf2 )\par
+            Debug.LogError(\cf3 "UIManager nie istnieje."\cf2 );\f5\lang1033\par
+    \}\par
+\par
+\f4\lang1045 i wywo\'b3ujemy odpowiedni\'b9 metod\'ea:\cf0\f0\fs22\lang1033\par
+\cf2\f3\fs19     \cf1 public\cf2  \cf1 void\cf2  AddScore(\cf1 int\cf2  value)\par
+    \{\par
+        _score = _score + value;\par
+        _uiManager.UpdateScoreText(_score);\par
+    \}\cf0\f0\fs22\par
+\par
+\par
+\b Podstawianie r\f1\'f3\f0\'bfnych sprit\f1\'f3\f0 w pod obiekt ui Image:\b0\par
+W skrypcie C# UI managera: \par
+\cf2\f3\fs19     [SerializeField]\par
+    \cf1 private\cf2  Sprite[] _liveSprites;\par
+\par
+\f4\lang1045 i przypisujemy w unity odpowiednie sprity.\f3\lang1033\par
+\f4\lang1045 Image component handle:\par
+Mo\'bfna tak jak powy\'bfej utworzy\'e6 w c# obiekt image, a nastepnie przypisac go w unity lub:\par
+\cf1\f3 private\cf2  Image _livesScoreImage;\par
+    \cf1 void\cf2  \cf1 Start\cf2 ()\par
+    \{\par
+        _livesScoreImage = GameObject.Find(\cf3 "Canvas"\cf2 ).transform.GetChild(1).GetComponent<Image>();  \par
+    \}\par
+\par
+\f4 p\f5\lang1033\'f3\f4\lang1045\'9fniej dajemy metod\'ea:\par
+\f3     \cf1 public\cf2  \cf1 void\cf2  UpdateLives(\cf1 int\cf2  currentLives)\par
+    \{\par
+\par
+        \cf4 // when method allows to set/get we write equals sth\cf2\par
+        _livesScoreImage.sprite = _liveSprites[currentLives];\par
+    \}\f5\lang1033\par
+
+\pard\sa200\sl276\slmult1\par
+\f4\lang1045 I wywo\'b3ujemy t\'ea metod\'ea w skrypcie playera.\par
+\par
+Pokazywanie/ukrywanie czego\'9c:\par
+pole w C# i przeci\'b9gamy w unity, lub kodujemy w c#\par
+\f3 _gameOverText = GameObject.Find(\cf3 "Canvas"\cf2 ).transform.GetChild(2).GetComponent<Text>();\par
+\f4 nast\'eapnie mo\'bfna w\'b3\'b9czy\'e6/wy\'b3\'b9czy\'e6 komponent:\par
+\f3  _gameOverText.enabled = \cf1 true\cf2 ;\par
+\f4 lub ca\'b3y game object:\par
+\f3 _gameOverText.gameObject.SetActive(\cf1 true\cf2 );\par
+\par
+\f5\lang1033\par
+\b\f4\lang1045 Uzyskiwanie dost\'eapu do button\f5\lang1033\'f3\f4\lang1045 w:\b0\par
+ka\'bfdy button ma onClick event\par
+trzeba przeci\'b9gn\'b9\'e6 odpowiedni obiekt ze skryptem (w hierarchii - canva ze skryptem: main menu lub ui manager) na pole none w on Click() buttona.\par
+ustawia si\'ea obietgry ze skryptem (shop keeper z shop), kt\f5\lang1033\'f3\f4\lang1045 rego dotyczy on click i wybieramy metod\'ea()\par
+aby sprawdzi\'e6 kt\f5\lang1033\'f3\f4\lang1045 ry button klikni\'eato dajemy w metodzie selected(int a) i w dla przycisk\f5\lang1033\'f3\f4\lang1045 w ustawiamy odpowiednie warto\'9cci w onclick w inspektorze\par
+Dla tekstu trzeba ustawia\'e6 horizontal i vertical overflow na overflow, aby by\'b3o wida\'e6 tekst, je\'9cli jest on zbyt du\'bfy i nie mie\'9cci si\'ea w polu tekstowym. Nast\'eapnie mo\'bfna dostosowa\'e6 wielo\'9c\'e6 pola tekstowego do wielko\'9cci tekstu.\par
+\par
+\b Game manager:\b0\par
+W ui managerze nie powinno by\'e6 user input. User input nale\'bfy obs\'b3ugiwa\'e6 w game managerze.\par
+Odpowiada za zarz\'b9dzanie stanem gry, np. Game over, czy gracz \'bfyje, ile jest przeciwnik\f5\lang1033\'f3\f4\lang1045 w.\par
+Pusty obiekt ze skryptem - podobnie jak ui manager.\par
+mo\'bfe mie\'e6 metod\'ea update i sprawdza\'e6 user input ca\'b3y czas\par
+\b\fs36 Singleton\b0\fs19\par
+klasa w przypadku kt\f5\lang1033\'f3\f4\lang1045 rej mo\'bfna utworzy\'e6 tylko jedn\'b9 instancj\'ea - jeden obiekt na ca\'b3\'b9 gr\'ea - jeden u\'bfywany w r\f5\lang1033\'f3\f4\lang1045\'bfnych scenach\par
+\par
+\cf1\f3 private\cf2  \cf1 static\cf2  GameManager _instance;\par
+\f4 - mo\'bfemy u\'bfywa\'e6 nazwy klasy i nazwy zmiennej, aby dosta\'e6 si\'ea do zmiennej\par
+\par
+\par
+U\'bfywamy w\'b3a\'9cciwo\'9cci Instance - aby uzyskiwa\'e6 dost\'eap do gamemanagera z innych klas\par
+public static nazwaklasy Instance \{get; private set;\}\par
+je\'9cli co\'9c jest static - to jest powi\'b9zane z ca\'b3\'b9 klas\'b9, a nie tylko z 1 instancj\'b9 klasy (1 obiektem)\par
+private set - nie chcemy, aby cokolwiek mog\'b3o ustawi\'e6 instancj\'ea - jak damy private to b\'eadzie mo\'bfna j\'b9 ustawia\'e6 tylko z poziomu klasy\par
+
+\pard\sl276\slmult1\f3     \cf1 public\cf2  \cf1 static\cf2  GameManager Instance\par
+    \{\par
+        \cf1 get\cf2\par
+        \{\par
+            \cf1 if\cf2  (_instance == \cf1 null\cf2 )\par
+            \{\par
+                Debug.LogError(\cf3 "No GameManger instance"\cf2 );\par
+            \}\par
+            \cf1 return\cf2  _instance;\par
+        \}\par
+    \}\f4\par
+
+\pard\sa200\sl276\slmult1\par
+
+\pard\sa200\sl240\slmult1\par
+
+\pard\sa200\sl276\slmult1 this = ta klasa\par
+\par
+Czyli tak:\par
+\b\fs24 Wersja prosta:\b0\fs19\par
+tworzymy zmienn\'b9: \cf1\f3 private\cf2  \cf1 static\cf2  GameManager _instance;\par
+\f4 tworzymy w\'b3a\'9cciwo\'9c\'e6 Instance z get i set\par
+w awake dajemy \f3  _instance = \cf1 this\cf2 ;\par
+\f4 do instancji odwou\'b3ujemy si\'ea w innych klasach: \f3\par
+GameManager.Instance.HasKeyToCastle = \cf1 true\cf2 ;\par
+\f4 nie tworzymy \'bfadnego odwo\'b3ania do game namagera (find.component) w metodzie start.\par
+Przyk\'b3ad:\par
+
+\pard\sl276\slmult1\cf1\f3 using\cf2  System.Collections;\par
+\cf1 using\cf2  System.Collections.Generic;\par
+\cf1 using\cf2  UnityEngine;\par
+\par
+\cf1 public\cf2  \cf1 class\cf2  \cf5 GameManager\cf2  : MonoBehaviour\par
+\{\par
+    \cf4 // singleton\cf2\par
+    \cf4 // instancja dla wszystkich klas\cf2\par
+\par
+    \cf1 private\cf2  \cf1 static\cf2  GameManager _instance;\par
+\par
+    \cf4 // return instance using property (wielk\f4\'b9 liter\'b9)\cf2\par
+\par
+    \cf1 public\cf2  \cf1 static\cf2  GameManager Instance\par
+    \{\par
+        \cf1 get\cf2\par
+        \{\par
+            \cf1 if\cf2  (_instance == \cf1 null\cf2 )\par
+            \{\par
+                Debug.LogError(\cf3 "No GameManger instance"\cf2 );\par
+            \}\par
+            \cf1 return\cf2  _instance;\par
+        \}\par
+    \}\par
+\par
+    \cf4 // wymagana metoda Awake - przypisuje instancj\'ea\cf2\par
+\par
+    \cf1 public\cf2  \cf1 bool\cf2  HasKeyToCastle\par
+    \{\par
+        \cf1 get\cf2 ;\par
+        \cf1 set\cf2 ;\par
+    \}\par
+\par
+    \cf4 // dobieramy si\'ea do playera, ale bez mo\'bfliwo\'9cci jego ustawiania - private set - nie mo\'bfna b\'eadzie go reassignowa\'e6\cf2\par
+    \cf1 public\cf2  Player Player \{ \cf1 get\cf2 ; \cf1 private\cf2  \cf1 set\cf2 ; \}\par
+\par
+    \cf1 public\cf2  \cf1 void\cf2  Awake()\par
+    \{\par
+        _instance = \cf1 this\cf2 ;\par
+\par
+        \cf4 // znajdujemy obiekt, a nast\'eapnie uzyskujemy jego komponent Player (skrypt)\cf2\par
+        Player = GameObject.FindGameObjectWithTag(\cf3 "Player"\cf2 ).GetComponent<Player>();\par
+    \}\par
+\par
+\}\par
+
+\pard\sa200\sl276\slmult1\par
+\b\fs24 Wersja z\'b3o\'bfona z dont destroy on load:\fs19\par
+\b0 tworzymy zmienn\'b9: \cf1\f3 private\cf2  \cf1 static\cf2  GameManager _instance;\par
+\f4 tworzymy w\'b3a\'9cciwo\'9c\'e6 Instance z get (bez set lub z private set)\par
+tworzymy metod\'ea makesingleton z dont destroy \par
+tworzymy awake z wywo\'b3aniem metody makesingleton\par
+z innych klas odwo\'b3ujemy si\'ea do klasy/jej instancji: \f3 AttemptManager.Instance.UpdateAttempt();\f4  \par
+\b Przyk\'b3ad:\par
+
+\pard\sl276\slmult1\cf1\b0\f3 public\cf2  \cf1 class\cf2  \cf5 AttemptManager\cf2  : MonoBehaviour\par
+\{\par
+    [SerializeField]\par
+    \cf1 private\cf2  \cf1 int\cf2  _attemptCount = 0;\par
+\par
+    \cf1 private\cf2  \cf1 static\cf2  AttemptManager _instance;\par
+\par
+    \cf1 public\cf2  \cf1 static\cf2  AttemptManager Instance\par
+    \{\par
+        \cf1 get\cf2\par
+        \{\par
+            \cf1 if\cf2  (_instance == \cf1 null\cf2 )\par
+            \{\par
+                Debug.LogError(\cf3 "No AttemptManager instance"\cf2 );\par
+            \}\par
+            \cf1 return\cf2  _instance;\par
+        \}\par
+    \}\par
+\par
+    \cf1 public\cf2  \cf1 void\cf2  UpdateAttempt()\par
+    \{\par
+        _attemptCount++;\par
+    \}\par
+\par
+    \cf1 public\cf2  \cf1 int\cf2  GetAttemptNumber()\par
+    \{\par
+        \cf1 return\cf2  _attemptCount;\par
+    \}\par
+\par
+    \cf1 public\cf2  \cf1 void\cf2  \cf1 Awake\cf2 ()\par
+    \{\par
+        MakeSingleton();\par
+    \}\par
+\par
+    \cf1 private\cf2  \cf1 void\cf2  MakeSingleton()\par
+    \{\par
+        \cf1 if\cf2  (_instance != \cf1 null\cf2 )\par
+        \{\par
+            Destroy(gameObject);\par
+            Debug.Log(\cf3 "Attempt Manager: DESTRUCTION WAS MADE"\cf2 );\par
+        \}\par
+        \cf1 else\cf2  \cf1 if\cf2  (_instance == \cf1 null\cf2 )\par
+        \{\par
+            _instance = \cf1 this\cf2 ;\par
+            DontDestroyOnLoad(gameObject);\par
+        \}\par
+    \}\par
+\par
+\} \cf4 // class end\cf2\b\f4\par
+
+\pard\sa200\sl276\slmult1\par
+Uzyskiwanie playera przez game managera w singletonie:\b0\par
+
+\pard\sl276\slmult1\f3     \cf1 public\cf2  Player Player \{ \cf1 get\cf2 ; \cf1 private\cf2  \cf1 set\cf2 ; \}\par
+\par
+    \cf1 public\cf2  \cf1 void\cf2  \cf1 Awake\cf2 ()\par
+    \{\par
+        _instance = \cf1 this\cf2 ;\par
+\par
+     \cf4 // znajdujemy obiekt, a nast\f4\'eapnie uzyskujemy jego komponent Player (skrypt)\cf2\par
+     Player = GameObject.FindGameObjectWithTag(\cf3 "Player"\cf2 ).GetComponent<Player>();\par
+    \}\par
+
+\pard\sa200\sl276\slmult1\par
+\b Main menu:\b0\par
+Nowe sceny tworzymy file new scene\par
+aby bg by\'b3o na ca\'b3ym ekranie Rect transform > Anchor presets - Screatch screatch prawy dolny r\f5\lang1033\'f3\f4\lang1045 g - i wyzerowa\'e6 marginesy\par
+\cf1\f3 using\cf2  UnityEngine.SceneManagement;\f4\par
+\par
+\par
+\par
+\cf0\f1\fs22\lang21\par
+}
+ 

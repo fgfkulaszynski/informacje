@@ -1,0 +1,118 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil Consolas;}{\f3\fnil\fcharset238 Consolas;}{\f4\fnil\fcharset0 Consolas;}}
+{\colortbl ;\red0\green0\blue0;\red0\green128\blue0;\red0\green0\blue255;\red163\green21\blue21;}
+{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang1045 Gdy w visual studio nie ma podpowiedzi - autouzupe\'b3nianie z unity:\par
+1.Download and Install Visual Studio Tools for unity from this link. Do this while Unity and Visual Studio are both closed.\par
+\b From Unity Editor, go to Edit --> Preferences... --> External Tools. On the External Script Editor drop down menu, change that to Visual Studio 2015.\b0\par
+From Visual Studio, go to Tools --> Options... --> Tools for Unity --> Miscellaneous. Under Show connectivity icon, set it to true then restart Visual Studio.\par
+When you re-start, connection icon should now be available in Visual Studio. Click it then choose the Unity instance to connect to. The red 'x' icon should now turn into a brown checkmark icon. Now, when you create a new C# file in Unity, it should open without saying Miscellaneous.\par
+\par
+Unity:\par
+\b Edytor:\par
+\b0 q, w, e, r, t, y - te klawisze umo\'bfliwiaj\'b9 wyb\f1\lang1033\'f3\f0\lang1045 r poszczeg\f1\lang1033\'f3\f0\lang1045 lnych narz\'eadzi edytora \par
+Ka\'bfdy komponent ma znak zapytania odsy\'b3aj\'b9cy do dokumentacji.\b\par
+\par
+Scena/hierarchia:\b0\par
+Focus: zaznaczamy obiekt w hierarchii, przesuwamy wska\'9fnik myszy do widoku sceny i naciskamy klawisz F.\par
+FPS mode: w widoku sceny naciskamy lewy i prawy przycisk myszki i poruszamy si\'ea asdw. W tym trybie mo\'bfna zmienia\'e6 szybko\'9c\'e6 scrollem.\par
+R\f1\lang1033\'f3\f0\lang1045\'bfa kierunk\f1\lang1033\'f3\f0\lang1045 w: 4 strza\'b3ki i box w prawym g\f1\lang1033\'f3\f0\lang1045 rnym rogu - wybranie opcji y (zielone - g\f1\lang1033\'f3\f0\lang1045 ra) x (czerone - prawo) daje nam w podgl\'b9dzie sceny widok jak w 2 d.\par
+\par
+Inspektor\par
+debug mode - prawy g\f1\lang1033\'f3\f0\lang1045 rny r\f1\lang1033\'f3\f0\lang1045 g - hamburger menu powy\'bfej inspectora\par
+\par
+\b Kamera\b0\par
+pozycja z na -10  - dzi\'eaki temu widzimy obiekt ustawiony na 0,0,0\par
+Clear flags - umo\'bfliwia ustawienie typu t\'b3a (background), np. Solid Color\par
+Light\par
+umo\'bfliwia ustawienie intensywno\'9cci - jasno\'9cci\par
+\par
+Podgl\'b9d sceny\par
+Aspect ratio HD - 16:9 \par
+Je\'9cli zmienimy nazw\'ea skryptu w Unity, to trzeba r\'eacznie zmieni\'e6 nazw\'ea klasy w VS.\par
+\par
+Nowe zasoby mo\'bfna przeci\'b9gno\'9c\'e6 (np z commandera) do odpowiedniego folderu w widoku Projects w Unity - automatyczny import.\par
+Obiekty graficzne 2D nazywamy spritami. \par
+W widoku sceny mo\'bfna prze\'b3\'b9czy\'e6 si\'ea na 2D.\par
+T\'b3o z widoku projekt mo\'bfna po prostu przerzuci\'e6 do widoku hierarchii i dostosowa\'e6 wielko\'9c\'e6 w widoku sceny.\par
+Obiekt 3d konwertujemy na 2D zmieniaj\'b9c jego kompoenty 3D na odpowiedniki 2D\par
+mesh renderer na sprite randerer itd. \par
+Dziwne glithe graficzne mog\'b9 powsta\'e6 gdy na poruszaj\'b9cym si\'ea obiekcie, kt\f1\lang1033\'f3\f0\lang1045 ry nie pownien mie\'e6 grawitacji, w\'b3\'b9czymy j\'b9.\par
+\par
+W File > Build Settings mo\'bfna ustawi\'e6 sceny i ich kolejno\'9c\'e6 oraz sprawdzi\'e6 indeksy scen.\par
+W main menu mo\'bfna doda\'e6 creditsy, ze to ja zrobi\'b3em.\par
+\par
+\par
+C# - visual studio\par
+F12 - podpowiedzi\par
+Nawiasy () w metodzie oznaczaj\'b9 jej inicjowanie.\par
+CTRL + K, C - dodawanie komentarza bloku\par
+CTRL + K, U - usuwanie komentarza bloku\par
+dwukropek w nazwie klasy - oznacza: dziedziczy, rozszerza\par
+MonoBehavior (przestrze\'f1 nazw: UnityEngine) umo\'bfliwia przeci\'b9ganie skrypt\f1\lang1033\'f3\f0\lang1045 w na game objecty (w unity ka\'bfdy obiekt jest game obiektem)\par
+void Start() - uruchamiana po uruchomieniu gry\par
+void Update() - game loop - cz\'eastotliwo\'9c\'e6: 60 frames per second, uruchamiana w ka\'bfdym framie\par
+void oznacza, \'bfe kod jest wykonywany od g\f1\lang1033\'f3\f0\lang1045 ry do do\'b3u.\par
+jak nie ma okre\'9clnika przed void (private, public, protected) to domy\'9clnie jest private\par
+do komponentu transform z unity odwo\'b3ujemy si\'ea pisz\'b9c po prostu transform.co\'9c. Tylko do niego mamy bezpo\'9credni dost\'eap.\par
+Vector3 - obs\'b3uguje wszystko co jest zwi\'b9zane z pozycj\'b9 i rotacj\'b9, \'b3\'b9czy si\'ea ze s\'b3owem "\b new\b0 " - przypisujemy now\'b9 pozycj\'ea, rotacj\'ea.\par
+\cf1\f2\fs19 Vector3.right\f3  to to samo co \cf2\f2 Vector3(1,0,0)\cf0\f0\fs22\par
+1 jednostka to 1 metr w \'9cwiecie rzeczywistym = pr\'eadko\'9c\'e6 60 * 1 / s - z racji cz\'eastotliwo\'9cci update\par
+Time.deltaTime - konwertuje czas do czasu rzeczywistego - po prostu mno\'bfymy\par
+.deltaTime - czas od odtatniej frame to bie\'bf\'b9cej frame w sekundach\par
+Nadawanie obiektowi sta\'b3ej pr\'eadko\'9cci\par
+\cf1\f2\fs19 transform.Translate(Vector3.right * Time.deltaTime);\par
+\f3 5 m/s\par
+\f2 transform.Translate(Vector3.right *\f3  5 *\f2  Time.deltaTime);\par
+\cf0\f0\fs22 to samo co \cf2\f2\fs19 Vector3(\f3 5\f2 ,0,0)\f3  * \cf1\f2 Time.deltaTime\par
+\f3 public float speed = 3.5f; - f odnosi si\'ea do float\par
+public int speed = 3; \par
+zmienne prywatne maj\'b9 na pocz\'b9tku _, np. _nazwa - dzi\'eaki temu wiadomo w kodzie, \'bfe dana zmienna jest prywatna.\par
+tylko publiczne zmienne mog\'b9 byc modyfikowane z poziomu unity\par
+jak dodamy atrybut \f2 [SerializeField]\f3  w wierszu nad zmienn\'b9 prywatn\'b9, to bedziemy mogli j\'b9 modyfikowac w unity.\par
+Input:\par
+Edit > Project Settings > Input manager\cf0\f0\fs22\par
+\cf3\f2\fs19 float\cf1  horizontal = Input.GetAxis(\cf4 "Horizontal"\cf1 );\par
+\f3 jak naci\'9cniemy lew\'b9 strza\'b3k\'ea to leci od 0 do -1 - pomi\'eadzy wiele float\f4\lang1033\'f3\f3\lang1045 w.\par
+\par
+\cf0\f0\fs22 Ka\'bfdy obiekt ma transforma, ka\'bfdy transform to obiekt.\par
+\par
+\cf1\f3\fs19 Poszczeg\f4\lang1033\'f3\f3\lang1045 lne komponenty mo\'bfemy w\'b3\'b9cza\'e6 lub wy\'b3\'b9cza\'e6: \f2 _gameOverText.enabled = \cf3 true\cf1 ;\f4\lang1033\par
+
+\pard\sl276\slmult1\cf0\f0\fs22\lang1045 S\'b3owa dodawane po kropce umo\'bfliwij\'b9ce dost\'eap do wi\'eakszej liczby metod:\par
+.transform - zdobywamy punkt zaczepu - root - teraz mo\'bfna u\'bfy\'e6 np get component.\par
+.gameObject - zdobywamy dost\'eap do ca\'b3ego obiektu, a nie tylko komponentu i mo\'bfemy go setActive\par
+\par
+Flicker: migacz\par
+\cf1\f2\fs19     IEnumerator GameOverFlickerRoutine()\par
+    \{\par
+\par
+        \cf3 for\cf1  (\cf3 int\cf1  i = 0; i < 100; i ++)\par
+        \{\par
+            _gameOverText.text = \cf4 "GAME OVER"\cf1 ;\par
+            \cf3 yield\cf1  \cf3 return\cf1  \cf3 new\cf1  WaitForSeconds(0.5f);\par
+            _gameOverText.text = \cf4 ""\cf1 ;\par
+            \cf3 yield\cf1  \cf3 return\cf1  \cf3 new\cf1  WaitForSeconds(0.5f);\par
+        \}\par
+\par
+    \}\cf0\f0\fs22\par
+
+\pard\sa200\sl276\slmult1\par
+Konwencje nazewnicta w logach:\par
+Nazwaklasy::metoda()\par
+\par
+Modularity:\par
+Je\'9cli mamy wiele podobnych obiekt\f1\lang1033\'f3\f0\lang1045 w (np. powerupy), a chcemy mie\'e6 jeden skrypt je obs\'b3uguj\'b9cy, to mo\'bfemy nada\'e6 im identyfikatory: W C# tworzymy serialized field "IDs" i przypisujemy ka\'bfdemu powerupowi inny id w unity. Nastepnie w C# switch/if i gotowe;\par
+Mo\'bfna tworzy\'e6 tablice gameobiekt\f1\lang1033\'f3\f0\lang1045 w w c# i przypisa\'e6 je w unity (przeci\'b9gn\'b9\'e6)\par
+\cf1\f2\fs19 [SerializeField]\par
+    \cf3 private\cf1  GameObject[] _powerUps;\cf0\f0\fs22\par
+\cf1\f3\fs19\par
+\f2\par
+\cf0\f0\fs22\par
+F12 - sprawdzamy konstruktor metody\par
+\par
+\par
+\par
+var - og\f1\lang1033\'f3\f0\lang1045 lny typ zmiennej - kompilator wykrywa\par
+var age = 5; - kompilator wie, \'bfe jak mamy 5 to ma by\'e6 int\f1\lang21\par
+}
+ 

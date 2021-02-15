@@ -1,0 +1,342 @@
+{
+  "enabled" : true,
+  "minClientVersion": "4070000",
+  "dependencyIds": [3,8,12],
+  "characterDependencyIds" : [3,5,6,8,12,20],
+  "sceneName": ["MapScene_Sector_23"],
+  "regionAssetBundles" :[
+        {
+            "bundleName": "r23",
+            "bundledAssets": [
+                "Assets/Redemption/Art/Atlases/Atlas_R23_Map.spriteatlas"
+            ],
+            "bundledCharacters": [],
+            "bundledLanguages": []
+        },
+        {
+            "bundleName": "r23_languages",
+            "bundledAssets": [],
+            "bundledCharacters": [],
+            "bundledLanguages": [ "Assets/Redemption/Content/LanguageContent/R23_Languages.asset" ]
+        }
+  ],
+  "uiContent": "R23_Elements.asset",
+  "quests":
+  {
+	"906": {
+		"nextQuests": [ "907","908" ],
+		"questContentID": "quest_906",
+		"localizedTitleKey": "Quest_906_Title",
+		"localizedDescriptionKey": "Quest_906_Description",
+		"energyCost": 2
+	},
+	"907": {
+		"nextQuests": [ "909" ],
+		"questContentID": "quest_907",
+		"localizedTitleKey": "Quest_907_Title",
+		"localizedDescriptionKey": "Quest_907_Description",
+		"energyCost": 2
+	},
+	"908": {
+		"nextQuests": [ "909" ],
+		"questContentID": "quest_908",
+		"localizedTitleKey": "Quest_908_Title",
+		"localizedDescriptionKey": "Quest_908_Description",
+		"energyCost": 2
+	},
+	"909": {
+		"nextQuests": [ "910","911","912" ],
+		"questContentID": "quest_909",
+		"localizedTitleKey": "Quest_909_Title",
+		"localizedDescriptionKey": "Quest_909_Description",
+		"energyCost": 4
+	},
+	"910": {
+		"nextQuests": [ "913" ],
+		"questContentID": "quest_910",
+		"localizedTitleKey": "Quest_910_Title",
+		"localizedDescriptionKey": "Quest_910_Description",
+		"energyCost": 3
+	},
+	"911": {
+		"nextQuests": [ "913" ],
+		"questContentID": "quest_911",
+		"localizedTitleKey": "Quest_911_Title",
+		"localizedDescriptionKey": "Quest_911_Description",
+		"energyCost": 3
+	},
+	"912": {
+		"nextQuests": [ "913" ],
+		"questContentID": "quest_912",
+		"localizedTitleKey": "Quest_912_Title",
+		"localizedDescriptionKey": "Quest_912_Description",
+		"energyCost": 3
+	},
+	"913": {
+		"nextQuests": [ "914" ],
+		"questContentID": "quest_913",
+		"localizedTitleKey": "Quest_913_Title",
+		"localizedDescriptionKey": "Quest_913_Description",
+		"energyCost": 4
+	},
+	"914": {
+		"nextQuests": [ "915" ],
+		"questContentID": "quest_914",
+		"localizedTitleKey": "Quest_914_Title",
+		"localizedDescriptionKey": "Quest_914_Description",
+		"energyCost": 3	},
+	"915": {
+		"nextQuests": [ "916" ],
+		"questContentID": "quest_915",
+		"localizedTitleKey": "Quest_915_Title",
+		"localizedDescriptionKey": "Quest_915_Description",
+		"energyCost": 4,
+		"questRewards": "CHAPTER_84_REWARD_BUNDLE"	},
+	"916": {
+		"nextQuests": [ "917" ],
+		"questContentID": "quest_916",
+		"localizedTitleKey": "Quest_916_Title",
+		"localizedDescriptionKey": "Quest_916_Description",
+		"energyCost": 2	},
+	"917": {
+		"nextQuests": [ "918","919" ],
+		"questContentID": "quest_917",
+		"localizedTitleKey": "Quest_917_Title",
+		"localizedDescriptionKey": "Quest_917_Description",
+		"energyCost": 4	},
+	"918": {
+		"nextQuests": [ "920" ],
+		"questContentID": "quest_918",
+		"localizedTitleKey": "Quest_918_Title",
+		"localizedDescriptionKey": "Quest_918_Description",
+		"energyCost": 3	},
+	"919": {
+		"nextQuests": [ "921" ],
+		"questContentID": "quest_919",
+		"localizedTitleKey": "Quest_919_Title",
+		"localizedDescriptionKey": "Quest_919_Description",
+		"energyCost": 3	},
+	"920": {
+		"nextQuests": [ "922" ],
+		"questContentID": "quest_920",
+		"localizedTitleKey": "Quest_920_Title",
+		"localizedDescriptionKey": "Quest_920_Description",
+		"energyCost": 3	},
+	"921": {
+		"nextQuests": [ "922" ],
+		"questContentID": "quest_921",
+		"localizedTitleKey": "Quest_921_Title",
+		"localizedDescriptionKey": "Quest_921_Description",
+		"energyCost": 3	},
+	"922": {
+		"nextQuests": [ "923","924" ],
+		"questContentID": "quest_922",
+		"localizedTitleKey": "Quest_922_Title",
+		"localizedDescriptionKey": "Quest_922_Description",
+		"energyCost": 2	},
+	"923": {
+		"nextQuests": [ "925" ],
+		"questContentID": "quest_923",
+		"localizedTitleKey": "Quest_923_Title",
+		"localizedDescriptionKey": "Quest_923_Description",
+		"energyCost": 3	},
+	"924": {
+		"nextQuests": [ "925" ],
+		"questContentID": "quest_924",
+		"localizedTitleKey": "Quest_924_Title",
+		"localizedDescriptionKey": "Quest_924_Description",
+		"energyCost": 3	},
+	"925": {
+		"nextQuests": [ "926" ],
+		"questContentID": "quest_925",
+		"localizedTitleKey": "Quest_925_Title",
+		"localizedDescriptionKey": "Quest_925_Description",
+		"energyCost": 4,
+		"questRewards": "CHAPTER_85_REWARD_BUNDLE"	},
+	"926": {
+		"nextQuests": [ "927" ],
+		"questContentID": "quest_926",
+		"localizedTitleKey": "Quest_926_Title",
+		"localizedDescriptionKey": "Quest_926_Description",
+		"energyCost": 2	},
+	"927": {
+		"nextQuests": [ "928","929","930" ],
+		"questContentID": "quest_927",
+		"localizedTitleKey": "Quest_927_Title",
+		"localizedDescriptionKey": "Quest_927_Description",
+		"energyCost": 4	},
+	"928": {
+		"nextQuests": [ "931" ],
+		"questContentID": "quest_928",
+		"localizedTitleKey": "Quest_928_Title",
+		"localizedDescriptionKey": "Quest_928_Description",
+		"energyCost": 2	},
+	"929": {
+		"nextQuests": [ "931" ],
+		"questContentID": "quest_929",
+		"localizedTitleKey": "Quest_929_Title",
+		"localizedDescriptionKey": "Quest_929_Description",
+		"energyCost": 2	},
+	"930": {
+		"nextQuests": [ "931" ],
+		"questContentID": "quest_930",
+		"localizedTitleKey": "Quest_930_Title",
+		"localizedDescriptionKey": "Quest_930_Description",
+		"energyCost": 2	},
+	"931": {
+		"nextQuests": [ "932","933" ],
+		"questContentID": "quest_931",
+		"localizedTitleKey": "Quest_931_Title",
+		"localizedDescriptionKey": "Quest_931_Description",
+		"energyCost": 4	},
+	"932": {
+		"nextQuests": [ "934" ],
+		"questContentID": "quest_932",
+		"localizedTitleKey": "Quest_932_Title",
+		"localizedDescriptionKey": "Quest_932_Description",
+		"energyCost": 3	},
+	"933": {
+		"nextQuests": [ "934" ],
+		"questContentID": "quest_933",
+		"localizedTitleKey": "Quest_933_Title",
+		"localizedDescriptionKey": "Quest_933_Description",
+		"energyCost": 3	},
+	"934": {
+		"nextQuests": [ "935" ],
+		"questContentID": "quest_934",
+		"localizedTitleKey": "Quest_934_Title",
+		"localizedDescriptionKey": "Quest_934_Description",
+		"energyCost": 4	},
+	"935": {
+		"nextQuests": [ "936" ],
+		"questContentID": "quest_935",
+		"localizedTitleKey": "Quest_935_Title",
+		"localizedDescriptionKey": "Quest_935_Description",
+		"energyCost": 4,
+		"questRewards": "CHAPTER_86_REWARD_BUNDLE"	},
+	"936": {
+		"nextQuests": [ "937" ],
+		"questContentID": "quest_936",
+		"localizedTitleKey": "Quest_936_Title",
+		"localizedDescriptionKey": "Quest_936_Description",
+		"energyCost": 2	},
+	"937": {
+		"nextQuests": [ "938" ],
+		"questContentID": "quest_937",
+		"localizedTitleKey": "Quest_937_Title",
+		"localizedDescriptionKey": "Quest_937_Description",
+		"energyCost": 3	},
+	"938": {
+		"nextQuests": [ "939","940","941" ],
+		"questContentID": "quest_938",
+		"localizedTitleKey": "Quest_938_Title",
+		"localizedDescriptionKey": "Quest_938_Description",
+		"energyCost": 4	},
+	"939": {
+		"nextQuests": [ "942" ],
+		"questContentID": "quest_939",
+		"localizedTitleKey": "Quest_939_Title",
+		"localizedDescriptionKey": "Quest_939_Description",
+		"energyCost": 2	},
+	"940": {
+		"nextQuests": [ "942" ],
+		"questContentID": "quest_940",
+		"localizedTitleKey": "Quest_940_Title",
+		"localizedDescriptionKey": "Quest_940_Description",
+		"energyCost": 3	},
+	"941": {
+		"nextQuests": [ "942" ],
+		"questContentID": "quest_941",
+		"localizedTitleKey": "Quest_941_Title",
+		"localizedDescriptionKey": "Quest_941_Description",
+		"energyCost": 2	},
+	"942": {
+		"nextQuests": [ "943" ],
+		"questContentID": "quest_942",
+		"localizedTitleKey": "Quest_942_Title",
+		"localizedDescriptionKey": "Quest_942_Description",
+		"energyCost": 4	},
+	"943": {
+		"nextQuests": [ "944" ],
+		"questContentID": "quest_943",
+		"localizedTitleKey": "Quest_943_Title",
+		"localizedDescriptionKey": "Quest_943_Description",
+		"energyCost": 3	},
+	"944": {
+		"nextQuests": [ "945" ],
+		"questContentID": "quest_944",
+		"localizedTitleKey": "Quest_944_Title",
+		"localizedDescriptionKey": "Quest_944_Description",
+		"energyCost": 3	},
+	"945": {
+		"nextQuests": [ "946" ],
+		"questContentID": "quest_945",
+		"localizedTitleKey": "Quest_945_Title",
+		"localizedDescriptionKey": "Quest_945_Description",
+		"energyCost": 4,
+		"questRewards": "CHAPTER_87_REWARD_BUNDLE"	},
+	"946": {
+		"nextQuests": [ "947" ],
+		"questContentID": "quest_946",
+		"localizedTitleKey": "Quest_946_Title",
+		"localizedDescriptionKey": "Quest_946_Description",
+		"energyCost": 2	},
+	"947": {
+		"nextQuests": [ "948","949" ],
+		"questContentID": "quest_947",
+		"localizedTitleKey": "Quest_947_Title",
+		"localizedDescriptionKey": "Quest_947_Description",
+		"energyCost": 2	},
+	"948": {
+		"nextQuests": [ "950" ],
+		"questContentID": "quest_948",
+		"localizedTitleKey": "Quest_948_Title",
+		"localizedDescriptionKey": "Quest_948_Description",
+		"energyCost": 3	},
+	"949": {
+		"nextQuests": [ "950" ],
+		"questContentID": "quest_949",
+		"localizedTitleKey": "Quest_949_Title",
+		"localizedDescriptionKey": "Quest_949_Description",
+		"energyCost": 3	},
+	"950": {
+		"nextQuests": [ "951","952" ],
+		"questContentID": "quest_950",
+		"localizedTitleKey": "Quest_950_Title",
+		"localizedDescriptionKey": "Quest_950_Description",
+		"energyCost": 3	},
+	"951": {
+		"nextQuests": [ "953" ],
+		"questContentID": "quest_951",
+		"localizedTitleKey": "Quest_951_Title",
+		"localizedDescriptionKey": "Quest_951_Description",
+		"energyCost": 3	},
+	"952": {
+		"nextQuests": [ "953" ],
+		"questContentID": "quest_952",
+		"localizedTitleKey": "Quest_952_Title",
+		"localizedDescriptionKey": "Quest_952_Description",
+		"energyCost": 3	},
+	"953": {
+		"nextQuests": [ "954" ],
+		"questContentID": "quest_953",
+		"localizedTitleKey": "Quest_953_Title",
+		"localizedDescriptionKey": "Quest_953_Description",
+		"energyCost": 3	},
+	"954": {
+		"nextQuests": [ "955" ],
+		"questContentID": "quest_954",
+		"localizedTitleKey": "Quest_954_Title",
+		"localizedDescriptionKey": "Quest_954_Description",
+		"energyCost": 5	},
+	"955": {
+		"nextQuests": [ ],
+		"questContentID": "quest_955",
+		"localizedTitleKey": "Quest_955_Title",
+		"localizedDescriptionKey": "Quest_955_Description",
+		"energyCost": 3,
+		"endOfZone": true,
+		"questRewards": "CHAPTER_88_REWARD_BUNDLE"
+	}
+  }
+}
