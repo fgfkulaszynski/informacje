@@ -2,18 +2,18 @@
 {\*\generator Riched20 10.0.19041}\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\f0\fs22\lang21 How to use Singletons in Unity3D without breaking everything...\par
 \par
-\f1\lang1045 Static\f0\lang21\par
-\f1\lang1045 Nie mo\'bfna utworzy\'e6 nowej instancji klasy statycznej.\par
+\b\f1\lang1045 Static:\b0\par
+Nie mo\'bfna utworzy\'e6 nowej instancji klasy statycznej.\par
+Klasa statyczna nie mo\'bfe dziedziczy\'e6 po MonoBehavior. Nie mo\'bfna jej doda\'e6 jako skrypt do obiektu w unity.\par
 Mo\'bfe by\'e6 tylko jedna instancja klasy statycznej. Mo\'bfna w niej tworzy\'e6 nowe w\'b3a\'9cciwo\'9cci (np. listy), tylko \'bfe b\'eadziemy mieli tylko jedn\'b9 instancj\'ea tej w\'b3asciwo\'9cci.\par
 Wystarczy poda\'e6 nazw\'ea klasy > kropka i wywo\'b3ujemy co chcemy. Nie trzeba tworzy\'e6 odwo\'b3ania.\par
 W statycznej klasie nie mo\'bfna tworzy\'e6 niestatycznych metod lub w\'b3a\'9cciwo\'9cci\par
-W klasach niestatycznych mo\'bfna korzysta\'e6 ze statycznych metod i w\'b3a\'9cciwo\'9cci (list\'ea, np. wszystkich wy\'b3\'b9czonych czo\'b3g\f0\lang1033\'f3\f1\lang1045 w). Taka lista jest dost\'eapna wsz\'eadzie. \par
-\par
+W klasach niestatycznych mo\'bfna korzysta\'e6 ze statycznych metod i w\'b3a\'9cciwo\'9cci (list\'ea, np. wszystkich wy\'b3\'b9czonych czo\'b3g\f0\lang1033\'f3w). Taka lista jest dost\f1\'eapna wsz\'eadzie. \par
 Klasy stayczne mo\'bfna stosowa\'e6 gdy co\'9c nie potrzebuje w\'b3asnego osobnego obiektu.\par
-Ma po prostu co\'9c zwraca\'e6, np UnitManager\par
+Ma po prostu co\'9c zwraca\'e6, np UnitManager\lang1045\par
 \par
-\par
-Singleton:\par
+\b Singleton:\b0\par
+Je\'9cli chcemy m\f0\lang1033\'f3\f1\lang1045 c przypisa\'e6 skrypt do obiektu w unity, ale chcemy, aby istnia\'b3a tylko jedna jego instancja.\par
 nie nadu\'bfywa\'e6 singleton\f0\lang1033\'f3\f1\lang1045 w, nie nale\'bfy tam umieszcza\'e6 stan\f0\lang1033\'f3\f1\lang1045 w i odwo\'b3ywa\'e6 si\'ea do nich z r\f0\lang1033\'f3\f1\lang1045\'bfnych miejsc - dane s\'b9 wymianiane z r\f0\lang1033\'f3\f1\lang1045\'bfnych miejsc\par
 
 \pard\sa200\sl240\slmult1{\pict{\*\picprop}\wmetafile8\picw14235\pich6244\picwgoal8070\pichgoal3540 
